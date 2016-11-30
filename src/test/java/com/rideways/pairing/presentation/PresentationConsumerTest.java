@@ -1,10 +1,8 @@
 package com.rideways.pairing.presentation;
 
-import oracle.jrockit.jfr.settings.PresetFile;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.ref.PhantomReference;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,6 +24,7 @@ public class PresentationConsumerTest {
         Presentation presentationOne = presentations.get(0);
         assertThat(presentationOne.getTitle(), is("Writing Fast Tests Against Enterprise Rails"));
         assertThat(presentationOne.getMinutesString(), is("60min"));
+        assertThat(presentationOne.getMinutes(), is(60));
     }
 
     @Test
@@ -34,5 +33,6 @@ public class PresentationConsumerTest {
         Presentation presentation = presentations.get(5);
         assertTrue(presentation.isLightningTalk());
         assertThat(presentation.getMinutesString(), is("lightning"));
+        assertThat(presentation.getMinutes(), is(5));
     }
 }
